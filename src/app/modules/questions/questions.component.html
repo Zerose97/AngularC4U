@@ -1,0 +1,16 @@
+<!-- <div>
+    <ng-container *ngFor="let item of questionList">
+        <div>
+            <p>{{item.question_id}}. {{item.question_text}}</p>
+            <div>
+                <mat-radio-group aria-label="Select an option" class="d-flex flex-column">
+                    <ng-container *ngFor="let answer of item.answers">
+                        <mat-radio-button [value]="answer.answer_id">{{answer.answer_text}}</mat-radio-button>
+                    </ng-container>
+                </mat-radio-group>
+            </div>
+        </div>
+    </ng-container>
+</div> -->
+
+<router-outlet></router-outlet>

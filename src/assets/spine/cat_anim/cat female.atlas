@@ -1,0 +1,65 @@
+cat female.png
+size:1977,1574
+filter:Linear,Linear
+pma:true
+body
+bounds:2,2,474,788
+rotate:90
+bông gòn
+bounds:2,478,1573,273
+dau goi
+bounds:390,1113,256,384
+offsets:1,2,257,386
+rotate:90
+dau goi-2
+bounds:2,1174,256,386
+offsets:0,0,257,386
+rotate:90
+hand
+bounds:1601,1325,247,374
+offsets:0,0,250,374
+rotate:90
+hatch
+bounds:2,753,1664,244
+left eye
+bounds:2,1478,94,94
+offsets:0,6,96,100
+phấn nền
+bounds:534,1371,201,251
+rotate:90
+right eye
+bounds:98,1463,109,129
+offsets:0,7,112,136
+rotate:90
+serum
+bounds:229,1432,140,303
+offsets:0,21,142,326
+rotate:90
+son
+bounds:1360,1367,205,239
+offsets:4,3,209,250
+rotate:90
+sua rua mat
+bounds:1074,1369,203,284
+offsets:0,0,203,285
+rotate:90
+sua rua mat-2
+bounds:787,1369,203,285
+rotate:90
+tail
+bounds:776,999,368,520
+offsets:12,5,380,526
+rotate:90
+
+cat female_2.png
+size:1825,1490
+filter:Linear,Linear
+pma:true
+box
+bounds:2,2,1486,866
+offsets:0,1,1487,868
+rotate:90
+head
+bounds:870,537,951,953
+offsets:2,0,1050,954
+rotate:90

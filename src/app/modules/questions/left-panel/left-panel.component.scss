@@ -1,0 +1,112 @@
+@import "variables";
+@import "responsive";
+
+:host {
+    display: block;
+    height: 100vh;
+    font-family: Quicksand, sans-serif !important;
+    position: relative;
+    // width: 270px;
+    height: 100vh;
+    -webkit-transition: width 500ms ease-in-out;
+    -moz-transition: width 500ms ease-in-out;
+    -o-transition: width 500ms ease-in-out;
+    transition: width 500ms ease-in-out;
+}
+
+.top-info {
+    width: 100%;
+    height: 220px;
+    position: relative;
+    display: grid;
+    place-content: center;
+    span {
+        color: white;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.6);
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        left: 0;
+    }
+}
+
+.content {
+    width: 100%;
+    height: calc(100% - 220px);
+    background: #fafafa;
+
+    .text {
+        cursor: pointer;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 1rem;
+        height: 50px;
+        padding: 16px 30px 0 15px;
+        position: relative;
+    }
+
+    .selected {
+        border-left: 8px solid #eed583;
+        background: #f3f3f3;
+        padding-left: 7px;
+    }
+}
+
+.disabled-item {
+    opacity: 0.5;
+}
+
+.progress-step {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: whitesmoke;
+    .item {
+        width: 10px;
+        flex: 1;
+        margin: 2px 0;
+        -webkit-transition: width 500ms ease-in-out;
+        -moz-transition: width 500ms ease-in-out;
+        -o-transition: width 500ms ease-in-out;
+        transition: width 500ms ease-in-out;
+    }
+    .done {
+        background: $c4u-primary;
+    }
+    .selected {
+        background: $c4u-primary;
+        width: 20px;
+    }
+    .disabled-item {
+        background: gray;
+    }
+}
+
+.button {
+    position: absolute;
+    top: 15px;
+    right: -35px;
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+::ng-deep {
+    mat-checkbox {
+        position: absolute !important;
+        top: 10%;
+        right: -1%;
+        .mdc-checkbox__background {
+            border-radius: 70%;
+        }
+    }
+}

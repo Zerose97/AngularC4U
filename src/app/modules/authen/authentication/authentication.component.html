@@ -1,0 +1,82 @@
+<!-- <asl-google-signin-button *ngIf="!user"></asl-google-signin-button>
+<ng-container *ngIf="!!user">
+    <img src="{{ user.photoUrl }}" referrerpolicy="no-referrer">
+<div>
+  <h4>{{ user.name }}</h4>
+  <p>{{ user.email }}</p>
+</div>
+</ng-container> -->
+
+<section class="section-logo grid-center">
+    <img src="assets/jpg/logo.jpg" style="border-radius: 50%;">
+</section>
+
+<section class="section-form grid-center">
+    <div class="login-form">
+        <p class="title">{{'auth.login.loginTitle' | translateText }}</p>
+
+        <div class="alert flex-center-y m-0">
+            <ng-container *ngIf="showError">
+                <mat-icon class="grid-center">highlight_off</mat-icon>
+                <p class="m-0">{{messageError}}</p>
+            </ng-container>
+        </div>
+
+        <div class="form">
+            <form [formGroup]="loginForm">
+                <div class="field-email flex-center-y" cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
+                    <mat-icon>email</mat-icon>
+                    <mat-form-field appearance="fill" class="login-input">
+                        <input matInput [placeholder]="'auth.login.email' | translateText " formControlName="email" cdkFocusInitial>
+                    </mat-form-field>
+                </div>
+                <div class="field-password flex-center-y">
+                    <mat-icon>lock</mat-icon>
+                    <mat-form-field appearance="fill" class="login-input">
+                        <input matInput [placeholder]="'auth.login.password' | translateText " [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+                        <span class="show-password pointer" mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </span>
+                    </mat-form-field>
+
+                </div>
+                <div class="remember flex-center-y">
+                    <mat-checkbox class="remember-chkb" formControlName="rememberMe">{{'auth.login.rememberme' | translateText }}</mat-checkbox>
+                    <p class="m-0 forgot-pass pointer" >{{'auth.login.forgotPassword' | translateText }}</p>
+                </div>
+                <div class="buttons grid-center">
+                    <button class="pointer" >{{'auth.login.login' | translateText }}</button>
+                    <button>
+                        Don't have an account yet? <span class="pointer">Sign up</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="dash">
+            <hr class="m-0">
+            <span>OR</span>
+        </div>
+
+        <div class="social flex-center-y">
+            <!-- <asl-google-signin-button #test class="google-login" *ngIf="!user" size="large"></asl-google-signin-button> -->
+            <div class="google">
+                <asl-google-signin-button #test class="google-login" *ngIf="!user"></asl-google-signin-button>
+                <img class="pointer" src="assets/jpg/sign-in-google.jpg">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="language-select">
+    <mat-select
+            class="ms-lang"
+            [(value)]="selectedLanguage"
+            (selectionChange)="onSelectLanguage($event.value)">
+        <mat-option *ngFor="let item of languages" [value]="item">
+            {{item.title}}
+        </mat-option>
+    </mat-select>
+</div>

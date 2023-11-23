@@ -1,0 +1,83 @@
+<div class="left-panel">
+	<app-left-panel
+		[topContent]="titleSection"
+	></app-left-panel>
+</div>
+
+<div class="right-content">
+	<div class="box">
+		<section class="gender" id="section1">
+			<div>
+				<img (click)="selectGender('male')" src="assets/svg/male.svg"
+					[ngClass]="{'selected-gender': selectedGender === 'male'}">
+			</div>
+			<div>
+				<img (click)="selectGender('female')" src="assets/svg/female.svg"
+					[ngClass]="{'selected-gender': selectedGender === 'female'}">
+			</div>
+			<div>
+				<img (click)="selectGender('lgbt')" src="assets/image/pns.jpg"
+					[ngClass]="{'selected-gender': selectedGender === 'lgbt'}">
+			</div>
+		</section>
+	
+		<section class="name" id="section2">
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Your Name</mat-label>
+				<input matInput placeholder="Ex. John" value="" (input)="onNameChange($event)">
+			</mat-form-field>
+		</section>
+	
+		<section class="dob" id="section3">
+			<mat-form-field appearance="outline">
+				<mat-label>Your Date of Birth</mat-label>
+				<input matInput [matDatepicker]="picker" (dateChange)="valueChanged($event)">
+				<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+				<mat-datepicker #picker></mat-datepicker>
+			</mat-form-field>
+		</section>
+	
+		<section class="city" id="section4">
+			<mat-form-field class="example-full-width" appearance="outline">
+				<mat-label>Your City</mat-label>
+				<input matInput placeholder="Ex. New York" (input)="onCityChange($event)">
+			</mat-form-field>
+		</section>
+	
+		<section class="knowledge" id="section5">
+			<div class="container-card">
+				<ng-container *ngFor="let card of cardList">
+					<div class="parent"
+						[ngClass]="{'selected-parent': selectedCard === card.cardId, 'disabled-card': card.disabled}"
+						(click)="selectCard(card.cardId)">
+						<div class="card" [ngStyle]="{'color': card.color, 'background-image': 'url(' + card.image + ')'}">
+							<!-- <div class="card-content-box"> -->
+							<div class="content-box" [ngStyle]="{'box-shadow': card.color + ' 0px 20px 50px -25px'}">
+								<h1 class="card-title">{{card.title}}</h1>
+								<p class="card-content">
+									{{card.content}}
+								</p>
+								<span class="see-more">See More</span>
+							</div>
+							<div class="date-box" [ngStyle]="{'box-shadow': card.color + ' 0px 20px 60px 0px'}">
+								<span class="month">Level</span>
+								<span class="date">{{card.level}}</span>
+							</div>
+							<!-- </div> -->
+						</div>
+					</div>
+				</ng-container>
+			</div>
+		</section>
+	</div>
+</div>
+
+<div *ngIf="goNextStep" (click)="goToNextStep()" class="next-button">
+	<i class="fa-solid fa-chevron-down"></i>
+</div>
+
+<div *ngIf="goNextSection" (click)="goToNextSection()" class="next-button">
+	<i class="fa-solid fa-chevron-right"></i>
+</div>
+
+<app-step-nav (onSelectStep)="clickNavToStep($event)"></app-step-nav>

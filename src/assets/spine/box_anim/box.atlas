@@ -1,0 +1,17 @@
+box.png
+size:1668,1116
+filter:Linear,Linear
+pma:true
+box
+bounds:2,2,1486,866
+offsets:0,1,1487,868
+hatch
+bounds:2,870,1664,244
+
+box_2.png
+size:1518,1470
+filter:Linear,Linear
+pma:true
+baloon
+bounds:2,2,1514,1466
+offsets:57,0,1664,1564

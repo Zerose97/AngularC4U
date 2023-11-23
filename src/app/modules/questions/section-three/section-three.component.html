@@ -1,0 +1,74 @@
+<div class="left-panel">
+	<app-left-panel
+		[topContent]="titleSection"
+		[contentList]="listQuestions"
+		[pendingStep]="pendingStep"
+		(selectQuestion)="onSelectQuestion($event)"
+	></app-left-panel>
+</div>
+
+<div class="right-content">
+	<div class="box" [ngClass]="{'multiple-question': isMultipleQuestion}">
+		<ng-container *ngFor="let question of listQuestions; let i = index">
+			<section [id]="'section_'+(i+1)">
+				
+				<div class="question">
+					<div class="question-info">
+						<p>Question</p>
+						<p>{{i+1}}/{{listQuestions.length}}</p>
+					</div>
+					<p class="title">{{question.question}}?</p>
+				</div>
+		
+				<ng-container *ngIf="question.type === TypeQuestion.Normal">
+					<div class="answer-single">
+						<ng-container *ngFor="let answer of question.answers; let j = index">
+							<div class="item-answer" [ngClass]="{'selected': question.selectedCode.includes(answer.code)}" (click)="onSelectAnswer(answer, i)">
+								{{answer.text}}
+							</div>
+						</ng-container>
+					</div>
+				</ng-container>
+		
+				<ng-container *ngIf="question.type === TypeQuestion.Typing">
+					<div class="answer-single">
+						<ng-container *ngFor="let answer of question.answers; let j = index">
+							<div class="item-answer" [ngClass]="{'selected': question.selectedCode.includes(answer.code)}" (click)="onSelectAnswer(answer, i)">
+								{{answer.text}}
+							</div>
+							<mat-form-field appearance="fill" *ngIf="question.selectedCode.includes(question.answers[0].code) && j === 0">
+								<input matInput [placeholder]="'Nhập tên thuốc của bạn nhé...'" cdkFocusInitial>
+							</mat-form-field>
+							<div *ngIf="question.selectedCode.includes(question.answers[1].code) && j === 1">
+								<span>Bạn có muốn tìm hiểu thêm <a href="https://bestme.vn/blogs/meo-lam-dep/thuoc-boi-di-ung-da-mat" target="_blank">các loại thuốc</a> ảnh hưởng tới da không?</span>
+							</div>
+						</ng-container>
+					</div>
+				</ng-container>
+		
+				<ng-container *ngIf="[TypeQuestion.Multiple, TypeQuestion.MultipleRandom].includes(question.type)">
+					<div class="answer-multiple">
+						<ng-container *ngFor="let answer of question.multipleManage?.answersMultiple; let j = index">
+							<div class="item-answer" [ngClass]="{'selected': question.selectedCode.includes(answer.code)}" (click)="onSelectAnswer(answer, i)">
+								<!-- <div class="check-box" (click)="onSelectAnswer(answer, i)">
+									<i [hidden]="!question.selectedCode.includes(answer.code)" class="fa-solid fa-check"></i>
+								</div> -->
+								<span>{{answer.text}}</span>
+							</div>
+						</ng-container>
+					</div>
+				</ng-container>
+			</section>
+		</ng-container>
+	</div>
+</div>
+
+
+
+<div *ngIf="goNextStep" class="next-button" (click)="goToNextStep()">
+	<i class="fa-solid fa-chevron-down"></i>
+</div>
+
+<div *ngIf="goNextSection" (click)="goToNextSection()" class="next-button">
+	<i class="fa-solid fa-chevron-right"></i>
+</div>

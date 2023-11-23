@@ -1,0 +1,66 @@
+{
+    "web_title": "Care4you",
+    "yes": "Yes",
+    "no": "No",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "all": "All",
+    "close": "Close",
+    "confirm": "Confirm",
+    "male": "Male",
+    "female": "Female",
+    "none": "None",
+    "notice": "Notice",
+    "header": {
+        "dashboard": "Dashboard",
+        "adminManagement": "Admin Menu",
+        "settingCategory": "Category Menu",
+        "logout": "Log out"
+    },
+    "auth": {
+        "login": {
+            "loginTitle": "Đăng nhập tài khoản của bạn",
+            "rememberme": "Ghi nhớ tài khoản",
+            "forgotPassword": "Quên mật khẩu?",
+            "login": "Đăng nhập",
+            "emailPassRequire": "Yêu cầu phải có Email và Mật khẩu",
+            "incorrectEmail": "Sai định dạng email",
+            "incorrectCertificate": "Sai Email hoặc Mật khẩu",
+            "email": "Email",
+            "password": "Mật khẩu"
+        },
+        "resetPassword": {
+            "resetTitle": "Reset Your Password",
+            "weSendOtp": "We'll send you an OTP code to reset your password",
+            "enterEmail": "Please enter email address associated with your account.",
+            "confirmNewPass": "Confirm New Password",
+            "getOtp": "Get OTP",
+            "phone": "SMS",
+            "email": "Email",
+            "otpExpire": "The code will expire in 3 minutes.",
+            "resend": "Resend",
+            "otp": "OTP",
+            "password": "Password",
+            "passwordInstruction": "Please enter a new password with at least 8 alphanumeric characters containing an uppercase letter, a number, and a special character.",
+            "success": "Success!",
+            "passwordReset": "Your password has been reset.",
+            "please": "Please now",
+            "signIn": "sign in",
+            "done": "Done",
+            "logIn": "Log In",
+            "emailCannotEmpty": "Email cannot be empty.",
+            "passwordCannotEmpty": "Password cannot be empty.",
+            "otpCannotEmpty": "OTP cannot be empty.",
+            "passwordMinLength": "Password must at last 8 characters.",
+            "otpLength": "OTP must at last 6 characters.",
+            "emailNotFound": "{{email}} not found",
+            "backLoginQuestion": "Are you sure you want to go back to Login?",
+            "backLogin": "Back to Login?"
+        }
+    },
+    "notfound": {
+      "notfoundText": "The page you requested could not be found",
+      "goHome": "Home page"
+    }
+}
+  

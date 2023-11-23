@@ -1,0 +1,91 @@
+:host {
+    background-image: url("/assets/jpg/tempo-screen.jpg");
+    background-size: cover;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frame {
+    width: 90%;
+    height: 80%;
+    background: red;
+    border-radius: 15px;
+    display: flex;
+    overflow-x: scroll;
+    align-items: center;
+    background-color: #5c5a4c;
+    .tempo {
+        height: 80%;
+        width: 300px;
+        position: relative;
+        border-radius: 15px;
+        -webkit-transition: width .5s ease-in-out;
+        -moz-transition: width .5s ease-in-out;
+        -o-transition: width .5s ease-in-out;
+        transition: width .5s ease-in-out;
+        img {
+            border-radius: 15px;
+            object-fit: cover;
+            width: 300px;
+            height: 100%;
+            filter: grayscale(1);
+            -webkit-transition: width .5s ease-in-out, filter 2s ease-in-out;
+            -moz-transition: width .5s ease-in-out, filter 2s ease-in-out;
+            -o-transition: width .5s ease-in-out, filter 2s ease-in-out;
+            transition: width .5s ease-in-out, filter 2s ease-in-out;
+        }
+        p {
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+        }
+    }
+    .tempo:hover {
+        width: 350px;
+        img {
+            width: 350px;
+        }
+    }
+    .finished {
+        img {
+            filter: grayscale(0);
+        }
+    }
+    .unlocked {
+        img {
+            filter: grayscale(75%);
+        }
+    }
+    .selected {
+        width: 1000px !important;
+        img {
+            width: 1000px !important;
+        }
+    }
+}
+
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}

@@ -1,0 +1,57 @@
+skeleton.png
+size:2026,1767
+filter:Linear,Linear
+pma:true
+body
+bounds:1142,586,880,1179
+offsets:0,120,880,1471
+box
+bounds:1541,177,407,276
+offsets:0,0,408,276
+rotate:90
+effect
+bounds:2,849,1138,916
+offsets:0,30,1138,946
+hatch
+bounds:664,128,430,197
+head
+bounds:2,200,660,647
+offsets:2,0,729,647
+l eye
+bounds:1034,668,74,75
+offsets:0,5,76,80
+l eye-1
+bounds:1683,24,151,112
+rotate:90
+l eye-2
+bounds:1034,525,141,63
+offsets:1,0,143,64
+rotate:90
+left hand
+bounds:1096,2,284,383
+rotate:90
+r eye
+bounds:1034,745,87,102
+offsets:0,7,89,109
+r eye-1
+bounds:1481,25,200,150
+r eye-2
+bounds:1034,382,141,63
+offsets:1,0,143,64
+rotate:90
+right_hand
+bounds:1099,288,296,440
+rotate:90
+serum
+bounds:2,56,142,303
+offsets:0,21,142,326
+rotate:90
+son
+bounds:1819,345,205,239
+offsets:4,3,209,250
+sua rua mat
+bounds:1819,59,203,284
+offsets:0,0,203,285
+tail
+bounds:664,327,368,520
+offsets:12,5,380,526

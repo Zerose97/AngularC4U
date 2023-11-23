@@ -1,0 +1,82 @@
+<div class="left-panel">
+	<app-left-panel [topContent]="titleSection" [contentList]="listQuestions" [pendingStep]="pendingStep"
+		(selectQuestion)="onSelectQuestion($event)"></app-left-panel>
+</div>
+
+<div class="right-content" [ngStyle]="{'width': togglePanel ? 'calc(100% - 270px)' : 'calc(100% - 40px)'}">
+	<div class="box" [ngClass]="{'multiple-question': isMultipleQuestion}">
+		<ng-container *ngFor="let question of listQuestions; let i = index">
+			<section [id]="'section_'+(i+1)">
+				<div class="question">
+					<div class="question-info">
+						<p>Question</p>
+						<p>{{i+1}}/{{listQuestions.length}}</p>
+					</div>
+					<p class="title">{{question.question}}?</p>
+				</div>
+
+				<ng-container *ngIf="question.type === TypeQuestion.Normal">
+					<div class="answer-single">
+						<ng-container *ngFor="let answer of question.answers; let j = index">
+							<div class="item-answer"
+								[ngClass]="{'selected': question.selectedCode.includes(answer.code)}"
+								(click)="onSelectAnswer(answer, i)">
+								{{answer.text}}
+							</div>
+						</ng-container>
+					</div>
+				</ng-container>
+
+				<ng-container *ngIf="question.type === TypeQuestion.Color">
+					<div class="answer-single">
+						<ng-container *ngFor="let answer of question.answers; let j = index">
+							<div [style.background]="answer.text" class="item-answer-color"
+								[ngClass]="{'selected-color': question.selectedCode.includes(answer.code)}"
+								(click)="onSelectAnswer(answer, i)">
+							</div>
+						</ng-container>
+					</div>
+				</ng-container>
+
+				<ng-container *ngIf="[TypeQuestion.Multiple, TypeQuestion.MultipleRandom].includes(question.type)">
+					<div class="answer-multiple">
+						<ng-container *ngFor="let answer of question.multipleManage?.answersMultiple; let j = index">
+							
+							<ng-container [ngSwitch]="answer.type">
+								<ng-container *ngSwitchCase="'ENVIRONMENT'">
+									<ng-container *ngTemplateOutlet="answerTemplate; context: {class: 'selected-enviroment'}"></ng-container>
+								</ng-container>
+								<ng-container *ngSwitchCase="'HABIT'">
+									<ng-container *ngTemplateOutlet="answerTemplate; context: {class: 'selected-habit'}"></ng-container>
+								</ng-container>
+								<ng-container *ngSwitchDefault>
+									<ng-container *ngTemplateOutlet="answerTemplate"></ng-container>
+								</ng-container>
+								<ng-template #answerTemplate let-class="class || 'selected'">
+									<!-- [ngClass]="{'selected': question.selectedCode.includes(answer.code)}" -->
+									<div class="item-answer"
+										 [ngClass]="[question.selectedCode.includes(answer.code) ? class : '']"
+										 (click)="onSelectAnswer(answer, i)">
+										 <!-- <div class="check-box" (click)="onSelectAnswer(answer, i)">
+											 <i [hidden]="!question.selectedCode.includes(answer.code)" class="fa-solid fa-check"></i>
+										 </div> -->
+										 <span>{{answer.text}}</span>
+									</div>
+								</ng-template>
+							</ng-container>
+
+						</ng-container>
+					</div>
+				</ng-container>
+			</section>
+		</ng-container>
+	</div>
+</div>
+
+<div *ngIf="goNextStep" class="next-button" (click)="goToNextStep()">
+	<i class="fa-solid fa-chevron-down"></i>
+</div>
+
+<div *ngIf="goNextSection" (click)="goToNextSection()" class="next-button">
+	<i class="fa-solid fa-chevron-right"></i>
+</div>

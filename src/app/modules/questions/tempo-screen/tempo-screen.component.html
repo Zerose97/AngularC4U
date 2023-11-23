@@ -1,0 +1,8 @@
+<div class="frame p-4">
+    <ng-container *ngFor="let item of tempoList; let i = index; let last = last">
+        <div class="tempo" [ngClass]="{'me-3': !last, 'selected': selectedTempo === item.id, 'finished': item.finished, 'unlocked': item.unlocked}" (click)="selectTempo(item)">
+            <img [src]="item.image"/>
+            <p>{{item.name}}</p>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,52 @@
+$mini-fold-break: 300;
+$mini-break: 360;
+$mobile-break: 420;
+$small-break: 576;
+$medium-break: 768;
+$large-break: 1024;
+$wide-break: 1200;
+$high-def-break: 1366;
+$quad-high-def-break: 2550;
+
+@mixin small-device {
+    @media screen and (max-width: #{$small-break}px) {
+        @content
+    }
+}
+
+@mixin medium-device {
+    @media screen and (max-width: #{$medium-break + 1}px) {
+        @content
+    }
+}
+
+@mixin large-device {
+    @media screen and (max-width: #{$large-break + 1}px) {
+        @content
+    }
+}
+
+@mixin wide-device {
+    @media screen and (max-width: #{$large-break + 1}px) {
+        @content
+    }
+}
+  
+
+@mixin response-in-range($min-break, $max-break) {
+    @media screen and (min-width: #{$min-break}px) and (max-width: #{$max-break}px) {
+        @content
+    }
+}
+
+@mixin response-break-up($break) {
+    @media screen and (min-width: #{$break}px) {
+        @content
+    }
+}
+
+@mixin response-break-down($break) {
+    @media screen and (max-width: #{$break}px) {
+        @content
+    }
+}

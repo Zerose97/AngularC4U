@@ -1,0 +1,309 @@
+@import "variables";
+
+:host {
+    display: -webkit-box;
+}
+
+.left-panel {
+    width: 270px;
+    height: 100vh;
+}
+
+.right-content {
+    width: calc(100vw - 270px);
+    display: flex;
+    // display: block;
+    // scroll-snap-type: y mandatory;
+    // overflow: hidden;
+    height: 100vh;
+    box-sizing: border-box;
+    box-shadow: -6px 0 73px -66px black;
+    background: whitesmoke;
+    .box {
+        width: 85vh;
+        height: 90%;
+        scroll-snap-type: y mandatory;
+        overflow: hidden;
+        background: white;
+        margin: auto;
+        border-radius: 25px;
+        box-shadow: 0 0 20px -15px black;
+        font-size: 1.8rem;
+    }
+}
+
+// input {
+//     background: none;
+//     font-size: 3rem;
+//     border-radius: 40px;
+//     padding: 10px 18px;
+//     color: white;
+//     outline: 5px solid white;
+//     border: none;
+// }
+
+// input::placeholder {
+//     color: white;
+// }
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    scroll-snap-align: start;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gender {
+    // background-image: url("/assets/image/gender-bg.jpg");
+    background: white;
+    justify-content: space-around;
+    img {
+        width: 300px;
+        height: 300px;
+    }
+    .selected-gender {
+        outline: 10px solid lightgray;
+        border-radius: 50%;
+    }
+}
+
+.name {
+    // background-image: url("/assets/image/name-bg.jpg");
+    background: white;
+}
+
+.dob {
+    // background-image: url("/assets/image/dob-bg.jpg");
+    background: white;
+}
+
+.city {
+    // background-image: url("/assets/image/city-bg.jpg");
+    background: white;
+}
+
+.knowledge {
+    // background: #181a1f;
+    background: white;
+}
+
+app-step-nav {
+    position: fixed;
+    top: 50%;
+    left: 2%;
+    transform: translate(0, -50%);
+}
+
+.container-card {
+    padding: 50px 0px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.parent {
+    // height: 400px;
+    width: 300px;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+.selected-parent {
+    outline: 5px solid lightgray;
+    border-radius: 25px;
+}
+
+.card {
+    padding-top: 100px;
+    transform-style: preserve-3d;
+    // background-image: url("https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    border-radius: 10px;
+    min-height: 285px;
+
+    .card-content-box {
+        height: 100%;
+        transition: transform .5s;
+        transform: scaleY(0);
+    }
+    
+    &:hover {
+        background-position: 80% 20%;
+        transform: rotate3d(0.5, 1, 0, 30deg);
+        // .card-content-box {
+        //     // height:100%;
+        //     transform: scaleY(1);
+        //     transform-origin: 0 100%;
+        // }
+        .content-box {
+            transform: scaleY(1);
+        }
+        .date-box {
+            top: 75px;
+        }
+    }
+}
+
+.content-box {
+    height:100%;
+    transform: scaleY(0);
+    transform-origin: 0 100%;
+    // height: 0;
+    // overflow: hidden;
+    width: 100%;    
+    background-color: rgba(0, 0, 0, 0.811);
+    border-radius: 0px 0px 10px 10px;
+    // box-shadow: rgba(0, 115, 255, 0.925) 0px 20px 50px -25px,;
+    // box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    transition: all .5s ease-in-out;
+    padding: 50px 25px 25px 25px;
+    transform-style: preserve-3d;
+
+    .card-title {
+        color: white;
+        font-size: 25px;
+        font-weight: 900;
+        transition: all 0.5s ease-in-out;
+        transform: translate3d(0px, 0px, 20px);
+        &:hover {
+            transform: translate3d(0px, 0px, 50px);
+        }
+    }
+
+    .card-content {
+        padding-top: 15px;
+        font-size: 12px;
+        color: rgb(185, 185, 185);
+        transition: all 0.5s ease-in-out;
+        transform: translate3d(0px, 0px, 20px);
+        
+        &:hover {
+            transform: translate3d(0px, 0px, 50px);
+        }
+    }
+
+    .see-more {
+        display: block;
+        font-weight: 900;
+        font-size: 11px;
+        text-transform: uppercase;
+        // color: rgb(0, 136, 255);
+        padding-top: 15px;
+        transition: all 0.5s ease-in-out;
+        transform: translate3d(0px, 0px, 20px);
+        
+        &:hover {
+            transform: translate3d(0px, 0px, 50px);
+        }
+    }
+}
+
+.date-box {
+    position: absolute;
+    // top: 75px;
+    top: 300px;
+    transition: top .4s linear;
+    left: 25px;
+    height: 60px;
+    width: 60px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+    // box-shadow: rgb(0, 102, 255) 0px 20px 60px 0px, rgb(0, 200, 255) 0px 18px 36px -18px;
+    transform: translate3d(0px, 0px, 50px);
+
+    span {
+        display: block;
+        text-align: center;
+    }
+
+    .month {
+        color: white;
+        font-size: 11px;
+        font-weight: 700;
+    }
+    .date {
+        font-size: 20px;
+        font-weight: 900;
+        // color: rgb(0, 136, 255);
+    }
+}
+
+.card2 {
+    filter: hue-rotate(150deg);
+}
+.card3 {
+    filter: hue-rotate(300deg);
+}
+.card4 {
+    filter: hue-rotate(90deg);
+}
+
+.disabled-card {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.date-box, .content-box, .parent {
+    box-sizing: border-box;
+}
+
+.next-button {
+    font-size: 3rem;
+    border: 7px solid white;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: grid;
+    place-items: center;
+    background: $c4u-primary;
+    position: absolute;
+    bottom: 5%;
+    left: 46.5vw;
+    transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
+    margin-left: 8%;
+    i {
+        color: white;
+    }
+}
+
+// Materialize Css
+mat-form-field {
+    font-size: 2rem;
+    width: 500px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+::ng-deep {
+    mat-form-field {
+        .mat-mdc-form-field-subscript-wrapper {
+            display: none;
+        }
+    }
+}
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}

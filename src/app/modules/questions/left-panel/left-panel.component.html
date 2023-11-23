@@ -1,0 +1,32 @@
+<ng-container *ngIf="togglePanel; else progressStep">
+    <section class="top-info">
+        <span>{{topContent.title}}</span>
+        <img [src]="topContent.image"/>
+    </section> 
+    
+    <section class="content">
+        <ng-container *ngIf="!noContent">
+            <ng-container *ngFor="let content of contentList; let i = index">
+                <div (click)="onSelectItem(i)" class="text" [ngClass]="{'selected': selectedIndex === i, 'disabled-item pe-none': (i + 1 > pendingStep) && !content?.selectedCode.length}">
+                    <span><i class="fa-solid fa-music"></i> {{content?.shortQuestion}}</span>
+                    <mat-checkbox class="remember-chkb pe-none" [checked]="content?.selectedCode.length > 0"></mat-checkbox>
+                </div>
+            </ng-container>
+        </ng-container>
+    </section>
+</ng-container>
+
+<ng-template #progressStep>
+    <section class="progress-step">
+        <div *ngFor="let content of contentList; let i = index" class="item" [ngClass]="{
+            'selected': selectedIndex === i,
+            'done': content?.selectedCode.length,
+            'disabled-item pe-none': (i + 1 > pendingStep) && !content?.selectedCode.length
+        }">
+        </div>
+    </section>
+</ng-template>
+
+<div class="button" (click)="onTogglePanel()">
+    <i class="fa-solid fa-bars"></i>
+</div>
